@@ -35,3 +35,5 @@ to the corresponding [API documentation pages](https://www.eclipse.org/hono/docs
 
 Please check out the [Eclipse Hono project home page](https://www.eclipse.org/hono/community/get-in-touch/) for
 details regarding our Gitter channel and mailing list.
+
+### bump
