@@ -1,0 +1,34 @@
+schemaVersion: 2.2.0
+metadata:
+  name: eclipse-hono
+projects:
+  - name: eclipse-hono
+    git:
+      remotes:
+        origin: "https://github.com/redhat-partner-ecosystem/hono"
+      checkoutFrom:
+        revision: develop
+components:
+  - name: eclipse-hono-devspace
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel8:3.11
+      memoryLimit: '3Gi'
+      memoryRequest: '2Gi'
+      cpuLimit: '2'
+      cpuRequest: '1'
+      mountSources: true
+      volumeMounts:
+        - name: m2
+          path: /home/user/.m2
+  - name: m2
+    volume:
+      size: 2G
+commands:
+  - id: build
+    exec:
+      component: tools
+      workingDir: ${PROJECTS_ROOT}/hono
+      commandLine: mvn clean install
+      group:
+        kind: build
+        isDefault: true
